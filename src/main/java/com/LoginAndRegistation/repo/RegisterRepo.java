@@ -1,0 +1,19 @@
+package com.LoginAndRegistation.repo;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.stereotype.Repository;
+
+import com.LoginAndRegistation.Entity.Register;
+
+@EnableJpaRepositories
+@Repository
+public interface RegisterRepo extends JpaRepository<Register, Integer> {
+
+	Optional<Register> findOneByEmailAndPassword(String email,String Password);
+	Register findByEmail(String Email);
+	
+
+}
